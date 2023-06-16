@@ -112,16 +112,7 @@ public class Menu6 extends JFrame implements ActionListener,VistaDulceria {
         });
          setVisible(true);
     }
-    @Override
-    public Dulce getDulceToInsert() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getDulceToInsert'");
-    }
-    @Override
-    public Dulce getNewDataFromDulceToActualice() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNewDataFromDulceToActualice'");
-    }
+   
    
 }
 

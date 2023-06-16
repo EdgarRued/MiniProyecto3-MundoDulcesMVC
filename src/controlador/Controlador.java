@@ -49,14 +49,7 @@ public class Controlador implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        switch(getOperacion()){
-            case "insertar":
-                Dulce nuevoDulce = vista.getDulceToInsert();
-                dulce.insertarDulce(nuevoDulce);
-                break;
-            case "eliminar":
-                
-        }
+       
     }
     
     public void newVista (VistaDulceria newvista){
