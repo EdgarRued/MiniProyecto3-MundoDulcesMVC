@@ -10,8 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+
 import java.util.ArrayList;
 import controlador.Controlador;
 import logica.Dulce;
@@ -140,6 +139,32 @@ public class VistaGUI extends JFrame implements VistaDulceria, ActionListener{
             if(decisions==2){
                 JOptionPane.showMessageDialog(contenedor, "no se encontro el dulce","Error",0);
             }
+            
+            }
+        
+       });
+        b5.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Menu5 vista5 = new Menu5();
+            dispose();
+            vista5.iniciar(controlador);
+            
+           
+            
+            }
+        
+       });
+        b6.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            Menu6 vista6 = new Menu6();
+            dispose();
+            vista6.iniciar(controlador);
+            
+           
             
             }
         
