@@ -18,6 +18,7 @@ import logica.Dulce;
 public class VistaGUI extends JFrame implements VistaDulceria, ActionListener{
     Controlador ctrlAux;
     Dulce gotchu;
+    static int decisions=2;
     Container contenedor,c2,c3,c4,c5,c6;
         JTextArea kasd= new JTextArea();
         String nameToUp;
@@ -26,7 +27,7 @@ public class VistaGUI extends JFrame implements VistaDulceria, ActionListener{
         GridLayout gridLayout;
         JLabel labelL, labelR, labelMain;
         
-        
+        ArrayList<Dulce> help;
         ArrayList <JButton> lista;
         JButton  b1,b2,b3,b4,b5,b6;
         
@@ -69,6 +70,7 @@ public class VistaGUI extends JFrame implements VistaDulceria, ActionListener{
         
     @Override
     public void iniciar(Controlador controlador) {
+        help=controlador.gettingArray();
         b1.addActionListener(new ActionListener() {
 
         @Override
@@ -85,18 +87,64 @@ public class VistaGUI extends JFrame implements VistaDulceria, ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
             nameToUp=JOptionPane.showInputDialog(contenedor,"Ingrese el nombre del Dulce a actualizar");
-            if(controlador.checkName(nameToUp)==true){
+            for(int i=0; i<help.size();i++){
+            if(help.get(i).getNombre().equals(nameToUp)){
                 Menu2 vista2 = new Menu2();
                 controlador.newVista(vista2);
                 dispose();
+                decisions=1;
                 vista2.iniciar(controlador,nameToUp);
-            }else{
+            }}
+            if(decisions==2){
                 JOptionPane.showMessageDialog(contenedor, "no se encontro el dulce","Error",0);
             }
             
             }
         
        });
+       b3.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            nameToUp=JOptionPane.showInputDialog(contenedor,"Ingrese el nombre del Dulce a eliminar");
+            for(int i=0; i<help.size();i++){
+            if(help.get(i).getNombre().equals(nameToUp)){
+                controlador.delete(nameToUp);
+                
+                decisions=1;
+                
+            }}
+            if(decisions==1){
+                 JOptionPane.showMessageDialog(contenedor,"Dulce eliminado","Exito",1);
+            }else if(decisions==2){
+                JOptionPane.showMessageDialog(contenedor, "no se encontro el dulce","Error",0);
+            }
+            
+            }
+        
+       });
+       b4.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            nameToUp=JOptionPane.showInputDialog(contenedor,"Ingrese el nombre del Dulce a buscar");
+            
+            for(int i=0; i<help.size();i++){
+            if(help.get(i).getNombre().equals(nameToUp)){
+                Menu4 vista4 = new Menu4();
+                controlador.newVista(vista4);
+                dispose();
+                decisions=1;
+                vista4.iniciar(controlador,nameToUp,help.get(i).getCatego(),help.get(i).getPrecio());
+            }}
+            if(decisions==2){
+                JOptionPane.showMessageDialog(contenedor, "no se encontro el dulce","Error",0);
+            }
+            
+            }
+        
+       });
+       
         
         
         

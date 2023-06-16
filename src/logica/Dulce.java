@@ -45,10 +45,10 @@ public class Dulce {
         }           
     }
 
-    public void eliminarDulce(String nombre){
+    public void elimination(String g){
 
         for(int i = 0; i < listaDulce.size(); i++){
-            if(listaDulce.get(i).getNombre().equals(nombre)){
+            if(listaDulce.get(i).getNombre().equals(g)){
                 listaDulce.remove(i);
             }
         }
@@ -65,7 +65,12 @@ public class Dulce {
                 listaDulce.get(i).setPrecio(p);
             }
         }
+        System.out.println("Imprimir lista"+listaDulce.size());
+        for(Dulce dulce : listaDulce){
+            System.out.println(dulce.getNombre());
+        } 
     }
+    
 
     public boolean VoidChecker (){
         if(listaDulce.isEmpty()==true){
@@ -85,6 +90,9 @@ public class Dulce {
         
         return Encout;
             
+    }
+    public ArrayList<Dulce> getArray(){
+        return listaDulce;
     }
     
      

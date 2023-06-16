@@ -107,7 +107,7 @@ public class Menu1 extends JFrame implements ActionListener,ItemListener,VistaDu
             @Override
             public void actionPerformed(ActionEvent e) {
                 
-                VistaGUI vista = new VistaGUI();
+                VistaDulceria vista = new VistaGUI();
                 n=campo.getText();
                 p=Integer.parseInt(camp2.getText());
                 gotDulce = new Dulce(n, dato, p);
@@ -115,8 +115,7 @@ public class Menu1 extends JFrame implements ActionListener,ItemListener,VistaDu
                 dispose();
                 
                 
-                controlador.newVista(vista);
-                controlador.iniciar();
+                vista.iniciar(controlador);
             }
             
         });

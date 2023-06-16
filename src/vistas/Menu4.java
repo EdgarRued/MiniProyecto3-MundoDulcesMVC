@@ -25,12 +25,12 @@ import java.awt.event.ItemListener;
 import java.util.ArrayList;
 
 
-public class Menu2 extends JFrame implements ActionListener,ItemListener,VistaDulceria{
+public class Menu4 extends JFrame implements ActionListener,ItemListener,VistaDulceria{
     Controlador ctrAux;
     JButton action;
     Container c2;
     Dulce gotDulce;
-    TextField campo,camp2;
+    TextField campo,camp2,campal;
     Categoria dato;
     String n;
     int p;
@@ -40,12 +40,12 @@ public class Menu2 extends JFrame implements ActionListener,ItemListener,VistaDu
     JLabel empty,ms1,ms2,leibol;
     
       GridLayout pru;
-    public Menu2(){
+    public Menu4(){
          c2= getContentPane();
          setResizable(false);
             setLocation(450,200);
             setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            setTitle("Actualizar dulce");
+            setTitle("Mostrar info de Dulce");
         newgrid1= new GridLayout(1,3,30,30);
             c2.setLayout(new FlowLayout(1));
             empty= new JLabel("");
@@ -58,6 +58,7 @@ public class Menu2 extends JFrame implements ActionListener,ItemListener,VistaDu
             ms1 = new JLabel("Nombre del dulce ");
             panelsi.add(ms1);
             campo = new TextField(10);
+            campo.setEditable(false);
             panelsi.add(campo);
             
             
@@ -65,16 +66,16 @@ public class Menu2 extends JFrame implements ActionListener,ItemListener,VistaDu
             
             ms2= new JLabel("Tipo de dulce");
             panelsi.add(ms2);
-            String lista [] = {"Seleccione un tipo","Dulce","Acido","Sin azucar"};
-            combo = new JComboBox<>(lista);
-            combo.addItemListener(this);
-            panelsi.add(combo);
+            campal= new TextField(10);
+            campal.setEditable(false);
+            panelsi.add(campal);
             
 //
             
             leibol= new JLabel("Precio");
             panelsi.add(leibol);
             camp2= new TextField(10);
+            camp2.setEditable(false);
             panelsi.add(camp2);
             
 
@@ -82,7 +83,7 @@ public class Menu2 extends JFrame implements ActionListener,ItemListener,VistaDu
             grid = new GridLayout(1,3,30,30);
             Panel2= new JPanel(grid);
             Panel2.add(empty);
-            action= new JButton("Actualizar Dulce");
+            action= new JButton("Volver");
             
             
             Panel2.add(action);
@@ -99,20 +100,30 @@ public class Menu2 extends JFrame implements ActionListener,ItemListener,VistaDu
             setSize(500, 300);
             
     }
-    public void iniciar(Controlador controlador,String na){
+    public void iniciar(Controlador controlador,String na,Categoria c,int pr){
+        campo.setText(na);
+        if(c==Categoria.acido){
+            campal.setText("Acido");
+        }else if(c==Categoria.dulce){
+            campal.setText("Dulce");
+        }else if(c==Categoria.notdulce){
+            campal.setText("Sin azucar");
+        }else{
+            campal.setText("");
+        }
+        camp2.setText(pr+"");
         ctrAux=controlador;
-        controlador.setOperacion("Actualizar");
+        controlador.setOperacion("Volver");
         action.addActionListener(new ActionListener() {
             
             @Override
             public void actionPerformed(ActionEvent e) {
                 
                 VistaDulceria vista = new VistaGUI();
-                n=campo.getText();
-                p=Integer.parseInt(camp2.getText());
                 
-                controlador.actualice(na,n,dato,p);
-                JOptionPane.showMessageDialog(c2,"Dulce actualizado","Exito",1);
+                
+                
+              
                 dispose();
                 
                 
@@ -170,4 +181,3 @@ public class Menu2 extends JFrame implements ActionListener,ItemListener,VistaDu
         throw new UnsupportedOperationException("Unimplemented method 'iniciar'");
     }
 }
-

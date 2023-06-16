@@ -6,11 +6,12 @@ import vistas.VistaDulceria;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class Controlador implements ActionListener{ 
 
     
-    
+    ArrayList<Dulce> ayuda;
     VistaDulceria vista;
     Dulce dulce;
     public String getNombre() {
@@ -54,7 +55,7 @@ public class Controlador implements ActionListener{
                 dulce.insertarDulce(nuevoDulce);
                 break;
             case "eliminar":
-                dulce.eliminarDulce(getNombre());
+                
         }
     }
     
@@ -72,6 +73,12 @@ public class Controlador implements ActionListener{
     }
     public void actualice(String n,String d, Categoria catego,int price){
         dulce.actualization(n, d, catego, price);
+    }
+    public void delete(String k){
+        dulce.elimination(k);
+    }
+    public ArrayList<Dulce> gettingArray(){
+        return dulce.getArray();
     }
 
 }
