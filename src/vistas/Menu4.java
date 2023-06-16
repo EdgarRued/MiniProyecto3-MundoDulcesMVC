@@ -166,15 +166,7 @@ public class Menu4 extends JFrame implements ActionListener,ItemListener,VistaDu
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
     
-    @Override
-    public Dulce getDulceToInsert() {
-        return gotDulce;
-    }
-    @Override
-    public Dulce getNewDataFromDulceToActualice() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNewDataFromDulceToActualice'");
-    }
+  
     @Override
     public void iniciar(Controlador controlador) {
         // TODO Auto-generated method stub

@@ -179,17 +179,7 @@ public class VistaGUI extends JFrame implements VistaDulceria, ActionListener{
         setVisible(true);
     }
 
-    @Override
-    public Dulce getDulceToInsert() {
-         return gotchu;
-    }
-
-    public Dulce getNewDataFromDulceToActualice(){
-        
-        return null;
-        
-
-    }
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
